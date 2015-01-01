@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/hubble05"
+    tools:context=".FullscreenActivity"
+    android:id="@+id/full_screen"
+
+    android:columnCount="2"
+    android:rowCount="2"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="120px"
+        android:background="@android:color/transparent"
+        android:src="@drawable/title"
+        android:id="@+id/title_bar"
+        android:clickable="true" />
+
+    <GridLayout
+        android:id="@+id/buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:columnCount="8"
+        android:layout_below="@+id/title_bar">
+
+        <ImageButton
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:id="@+id/patternButton"
+            android:clickable="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/patterns" />
+
+    </GridLayout>
+</RelativeLayout>
