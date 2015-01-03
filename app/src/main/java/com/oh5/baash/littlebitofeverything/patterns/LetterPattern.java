@@ -11,11 +11,12 @@ public class LetterPattern {
         private char [] m_answers = null;
         private char [] m_pattern = null;
 
-        static final int A = 65;
+        static int A = 65;
 
         public LetterPattern(int size){
             m_right_answer = new Random().nextInt(26);
             m_size = size;
+            A = (new Random().nextBoolean() ?  65 : 97);
         }
         public char get_right_answer(){
             return Character.toChars( A + m_right_answer )[0];
