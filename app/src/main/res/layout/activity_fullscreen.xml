@@ -1,21 +1,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="@drawable/hubble05"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant1_background"
     tools:context=".FullscreenActivity"
     android:id="@+id/full_screen"
-
+    android:screenOrientation="landscape"
     android:columnCount="2"
     android:rowCount="2"
     android:orientation="vertical"
     >
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="120px"
-        android:background="@android:color/transparent"
-        android:src="@drawable/title"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Adventures Of Little Morris"
         android:id="@+id/title_bar"
-        android:clickable="true" />
+        android:textSize="43sp"
+        android:fontFamily="serif"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/home_button"
+        android:layout_toEndOf="@+id/home_button"
+        android:textColor="#FFFFCC00"
+        android:typeface="monospace" />
+
 
     <GridLayout
         android:id="@+id/buttons"
@@ -30,7 +40,8 @@
             android:id="@+id/patternButton"
             android:clickable="true"
             android:background="@android:color/transparent"
-            android:src="@drawable/patterns" />
+            android:src="@drawable/patterns"
+            android:layout_marginLeft="30dp" />
 
     </GridLayout>
 </RelativeLayout>

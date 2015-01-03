@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_background"
+    tools:context="com.oh5.baash.littlebitofeverything.Patterns"
+    android:id="@+id/patterns_layout"
+    android:screenOrientation="landscape">
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/home_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/house_icon"
+        android:background="#00000000"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Help Me Make Patterns"
+        android:id="@+id/title_bar"
+        android:textSize="43sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="37dp"
+        android:layout_toRightOf="@+id/home_button"
+        android:layout_toEndOf="@+id/home_button"
+        android:textColor="#ff2e24ff"
+        android:typeface="monospace" />
+
+
+
+    <LinearLayout
+        android:id="@+id/choices"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/home_button"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="10px">
+
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="New Button"
+            android:id="@+id/choice1"
+            android:background="@android:color/white"
+            android:src="@drawable/patterns"/>
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="New Button"
+            android:id="@+id/choice2"
+            android:background="@android:color/white"
+            android:src="@drawable/patterns" />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="New Button"
+            android:id="@+id/choice3"
+            android:background="@android:color/white"
+            android:src="@drawable/patterns"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/patterns_box"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/choices"
+        android:gravity="top|center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical">
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
