@@ -10,7 +10,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.oh5.baash.littlebitofeverything.util.NumberPattern;
+import com.oh5.baash.littlebitofeverything.patterns.NumberPattern;
+import com.oh5.baash.littlebitofeverything.patterns.LetterPattern;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -80,7 +81,7 @@ public class Patterns extends BaseActivity {
                 set_number_pattern();
                 break;
             case PatternType.LETTERS:
-                set_number_pattern();//set_letter_pattern();
+                set_letter_pattern();
                 break;
             case PatternType.PICTURES:
                 set_number_pattern();//set_picture_pattern();
@@ -110,37 +111,12 @@ public class Patterns extends BaseActivity {
     }
 
     Button m_right_button = null;
-    private void set_number_pattern(){
-        TextView title = (TextView)findViewById(R.id.title_bar);
-        title.setText("What number is missing?");
-        clear_pattern_buttons();
-        NumberPattern pattern = new NumberPattern( new Random().nextInt(2) + 5);
-        for(int x = 0; x < pattern.size(); x ++) {
-            if (pattern.get_pattern()[x] != pattern.m_right_answer) {
-                add_button_value(pattern.get_pattern()[x]);
-            } else {
-                add_button_value(-1);
-            }
-        }
-        Button button1 = (Button)findViewById(R.id.choice1);
-        Button button2 = (Button)findViewById(R.id.choice2);
-        Button button3 = (Button)findViewById(R.id.choice3);
-        button1.setText("" + pattern.get_answers()[0]);
-        button2.setText("" + pattern.get_answers()[1]);
-        button3.setText("" + pattern.get_answers()[2]);
-        if( pattern.get_answers()[0] == pattern.m_right_answer)
-            m_right_button = button1;
-        else if( pattern.get_answers()[1] == pattern.m_right_answer)
-            m_right_button = button2;
-        else
-            m_right_button = button3;
 
-    }
 
-    private void add_button_value(int image_id){
+    private void add_button_value(String text){
         Button btn = new Button(this);
-        if(image_id >= 0) {
-            btn.setText("" + image_id);
+        if(text != null) {
+            btn.setText(text);
             btn.setBackgroundColor(Color.GREEN);
         }
         else {
@@ -163,9 +139,56 @@ public class Patterns extends BaseActivity {
         m_pattern_buttons.add(btn);
     }
 
+    private void set_number_pattern(){
+        TextView title = (TextView)findViewById(R.id.title_bar);
+        title.setText("What number is missing?");
+        clear_pattern_buttons();
+        NumberPattern pattern = new NumberPattern( new Random().nextInt(2) + 5);
+        for(int x = 0; x < pattern.size(); x ++) {
+            if (pattern.get_pattern()[x] != pattern.m_right_answer) {
+                add_button_value("" + pattern.get_pattern()[x]);
+            } else {
+                add_button_value(null);
+            }
+        }
+        Button button1 = (Button)findViewById(R.id.choice1);
+        Button button2 = (Button)findViewById(R.id.choice2);
+        Button button3 = (Button)findViewById(R.id.choice3);
+        button1.setText("" + pattern.get_answers()[0]);
+        button2.setText("" + pattern.get_answers()[1]);
+        button3.setText("" + pattern.get_answers()[2]);
+        if( pattern.get_answers()[0] == pattern.m_right_answer)
+            m_right_button = button1;
+        else if( pattern.get_answers()[1] == pattern.m_right_answer)
+            m_right_button = button2;
+        else
+            m_right_button = button3;
+    }
+
     private void set_letter_pattern(){
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("What letter is missing?");
+        clear_pattern_buttons();
+        LetterPattern pattern = new LetterPattern( new Random().nextInt(2) + 5);
+        for(int x = 0; x < pattern.size(); x ++) {
+            if (pattern.get_pattern()[x] != pattern.get_right_answer()) {
+                add_button_value("" + pattern.get_pattern()[x]);
+            } else {
+                add_button_value(null);
+            }
+        }
+        Button button1 = (Button)findViewById(R.id.choice1);
+        Button button2 = (Button)findViewById(R.id.choice2);
+        Button button3 = (Button)findViewById(R.id.choice3);
+        button1.setText("" + pattern.get_answers()[0]);
+        button2.setText("" + pattern.get_answers()[1]);
+        button3.setText("" + pattern.get_answers()[2]);
+        if( pattern.get_answers()[0] == pattern.get_right_answer())
+            m_right_button = button1;
+        else if( pattern.get_answers()[1] == pattern.get_right_answer())
+            m_right_button = button2;
+        else
+            m_right_button = button3;
     }
 
     private void set_picture_pattern(){}

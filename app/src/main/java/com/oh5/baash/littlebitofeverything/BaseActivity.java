@@ -94,9 +94,11 @@ public class BaseActivity extends Activity {
         m_wrong_answer_voice = new ArrayList();
         m_wrong_answer_voice.add(MediaPlayer.create(this, R.raw.k_awwh));
         m_wrong_answer_voice.add(MediaPlayer.create(this, R.raw.s_awwh));
-        m_wrong_answer_voice.add(MediaPlayer.create(this, R.raw.k_ohohwronganswer));
+        MediaPlayer wa = MediaPlayer.create(this, R.raw.k_ohohwronganswer);
+        m_wrong_answer_voice.add(wa);
+        m_wrong_answer_voice.add(wa);
+        m_wrong_answer_voice.add(wa);
         m_wrong_answer_voice.add(MediaPlayer.create(this, R.raw.k_awwh));
-        m_wrong_answer_voice.add(MediaPlayer.create(this, R.raw.k_whatnumbersmissing));
     }
 
     protected int m_right_answer_count = 0;

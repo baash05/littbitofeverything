@@ -1,4 +1,4 @@
-package com.oh5.baash.littlebitofeverything.util;
+package com.oh5.baash.littlebitofeverything.patterns;
 
 import java.util.Random;
 
