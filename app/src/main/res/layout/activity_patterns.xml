@@ -44,7 +44,7 @@
 
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:gravity="top|center_horizontal"
@@ -59,7 +59,7 @@
                 android:textSize="43sp"
                 android:textStyle="bold"
                 android:layout_width="100dp"
-                android:layout_height="fill_parent"
+                android:layout_height="60dp"
                 android:text="A"
                 android:id="@+id/choice1"
                 android:background="@drawable/rounded_button"

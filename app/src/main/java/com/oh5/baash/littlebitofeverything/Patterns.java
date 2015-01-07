@@ -181,7 +181,7 @@ public class Patterns extends BaseActivity {
         if(text != null)
           text_fld.setText(text);
         else{
-          text_fld.setText(" ?  ");
+          text_fld.setText(" ? ");
           text_fld.setTextColor(0xFF000000);
           box.setBackgroundColor(0x35FFFFFF);
         }
@@ -211,7 +211,7 @@ public class Patterns extends BaseActivity {
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("Add the numbers");
         clear_pattern_buttons();
-        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 10: 20);
+        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 10: addition_pattern_run_count);
         fill_in_puzzle(pattern);
     }
 
