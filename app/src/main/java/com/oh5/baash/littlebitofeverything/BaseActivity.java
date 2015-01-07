@@ -11,8 +11,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 
-import com.oh5.baash.littlebitofeverything.util.util.SystemUiHider;
+import com.oh5.baash.littlebitofeverything.util.SystemUiHider;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,6 +25,7 @@ public class BaseActivity extends Activity {
 
     private SystemUiHider mSystemUiHider;
     private static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
+    protected TextView m_title_bar = null;
 
 
     @Override
@@ -37,6 +39,8 @@ public class BaseActivity extends Activity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        m_title_bar = (TextView)findViewById(R.id.title_bar);
+ //       m_title_bar.setShadowLayer(30, 0, 0, Color.RED);
     }
 
     protected void hide_navigation_bar(int view_id){
@@ -85,9 +89,6 @@ public class BaseActivity extends Activity {
     protected void init_answer_voice(){
         m_write_answer_voice = new ArrayList();
         m_write_answer_voice.add(MediaPlayer.create(this, R.raw.k_great_job));
-        m_write_answer_voice.add(MediaPlayer.create(this, R.raw.k_great_job));
-        m_write_answer_voice.add(MediaPlayer.create(this, R.raw.s_yahh));
-        m_write_answer_voice.add(MediaPlayer.create(this, R.raw.s_yahh));
         m_write_answer_voice.add(MediaPlayer.create(this, R.raw.s_yourasuperstar));
         m_write_answer_voice.add(MediaPlayer.create(this, R.raw.k_doitagain));
         m_write_answer_voice.add(MediaPlayer.create(this, R.raw.s_thatwasagoodpick));

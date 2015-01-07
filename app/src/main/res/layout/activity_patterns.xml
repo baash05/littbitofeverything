@@ -26,75 +26,86 @@
         android:layout_marginLeft="37dp"
         android:layout_toRightOf="@+id/home_button"
         android:layout_toEndOf="@+id/home_button"
-        android:textColor="#ff2e24ff"
-        android:typeface="monospace" />
+        android:typeface="monospace"
 
+        android:textColor="@color/light_font"
+        />
 
 
     <LinearLayout
-        android:id="@+id/choices"
-        android:layout_marginTop="10dp"
+        android:id="@+id/game"
         android:layout_below="@+id/home_button"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="top|center_horizontal"
-        android:paddingTop="10px">
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:id="@+id/choices"
 
-
-        <Button
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="top|center_horizontal"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="New Button"
-            android:id="@+id/choice1"
-            android:background="@android:color/white"
-            android:src="@drawable/patterns"/>
+            android:paddingTop="10px">
 
-        <Button
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="New Button"
-            android:id="@+id/choice2"
-            android:background="@android:color/white"
-            android:src="@drawable/patterns" />
 
-        <Button
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="New Button"
-            android:id="@+id/choice3"
-            android:background="@android:color/white"
-            android:src="@drawable/patterns"/>
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="43sp"
+                android:textStyle="bold"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:text="A"
+                android:id="@+id/choice1"
+                android:background="@drawable/rounded_button"
+                android:src="@drawable/patterns" />
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:textSize="43sp"
+                android:textStyle="bold"
+                android:text="B"
+                android:id="@+id/choice2"
+                android:background="@drawable/rounded_button"
+                android:src="@drawable/patterns" />
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="43sp"
+                android:textStyle="bold"
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:text="C"
+                android:id="@+id/choice3"
+                android:background="@drawable/rounded_button"
+                android:src="@drawable/patterns"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patterns_box"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/choices"
+            android:gravity="top|center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical">
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/patterns_box"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/choices"
-        android:gravity="top|center_horizontal"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_gravity="center_vertical">
-
-
-
-    </LinearLayout>
-
 
 </RelativeLayout>
