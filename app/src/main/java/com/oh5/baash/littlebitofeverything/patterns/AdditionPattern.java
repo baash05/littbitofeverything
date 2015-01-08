@@ -1,14 +1,14 @@
 package com.oh5.baash.littlebitofeverything.patterns;
 
-import java.util.Random;
-
 /**
  * Created by davidrawk on 7/01/15.
  */
 public class AdditionPattern extends PatternsBase {
-
-    public AdditionPattern(int max_answer){
-        m_right_answer = new Random().nextInt(max_answer -2) + 2;
+    private int m_variable1, m_variable2;
+    public AdditionPattern(int max_variable){
+        m_variable1 = m_randomiser.nextInt(max_variable);
+        m_variable2 = m_randomiser.nextInt(max_variable);
+        m_right_answer = m_variable1 + m_variable2;
     }
 
     public String [] get_answers(){
@@ -30,12 +30,10 @@ public class AdditionPattern extends PatternsBase {
 
     public String[] get_puzzle(){
         if( m_pattern == null){
-            int variable1 = m_randomiser.nextInt(m_right_answer-1) + 1;
-            int variable2 = m_right_answer - variable1;
             m_pattern = new String[5];
-            m_pattern[0] = "" + variable1;
+            m_pattern[0] = "" + m_variable1;
             m_pattern[1] = "+";
-            m_pattern[2] = "" + variable2;
+            m_pattern[2] = "" + m_variable2;
             m_pattern[3] = "=";
             m_pattern[4] = get_right_answer();
         }
