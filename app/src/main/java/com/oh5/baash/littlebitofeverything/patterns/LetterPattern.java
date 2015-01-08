@@ -41,7 +41,7 @@ public class LetterPattern extends PatternsBase{
         public String[] get_puzzle(){
             if( m_pattern == null) {
                 m_pattern = new String[m_size];
-                int lowest = m_right_answer - (m_randomiser.nextInt(m_size / 2));
+                int lowest = m_right_answer - (m_randomiser.nextInt(m_size / 2) + 1);
                 if(lowest < 0)              lowest = 0;
                 if((lowest + m_size) > 26 ) lowest = 26-m_size;
 

@@ -6,8 +6,8 @@ package com.oh5.baash.littlebitofeverything.patterns;
 public class AdditionPattern extends PatternsBase {
     private int m_variable1, m_variable2;
     public AdditionPattern(int max_variable){
-        m_variable1 = m_randomiser.nextInt(max_variable);
-        m_variable2 = m_randomiser.nextInt(max_variable);
+        m_variable1 = m_randomiser.nextInt(max_variable) + 1;
+        m_variable2 = m_randomiser.nextInt(max_variable) + 1;
         m_right_answer = m_variable1 + m_variable2;
     }
 

@@ -72,18 +72,18 @@ public class Patterns extends BaseActivity {
             public void onClick(View view) {
                 button.setEnabled(false);
                 if(view == m_right_button) {
-                    m_right_answer_count ++;
                     if( m_right_answer_count < 20) {
                         if (m_right_answer_count % 3 == 0)
                             monster.run();
                         else
                             play_bell_sound();
                     } else {
-                        if(new Random().nextInt(6) == 0 )
+                        if(new Random().nextInt(3) == 0 )
                             monster.run();
                         else
                             play_bell_sound();
                     }
+                    m_right_answer_count ++;
                     pick_pattern();
                 } else {
                     play_bad_sound();
@@ -211,7 +211,7 @@ public class Patterns extends BaseActivity {
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("Add the numbers");
         clear_pattern_buttons();
-        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 10: addition_pattern_run_count);
+        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 5: addition_pattern_run_count/2);
         fill_in_puzzle(pattern);
     }
 
