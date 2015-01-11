@@ -6,6 +6,18 @@
                 android:angle="-135"
                 android:endColor="#ffffa100"
                 android:startColor="#a5ff3a1c" />
+
+            <corners
+                android:bottomLeftRadius="7dp"
+                android:bottomRightRadius="7dp"
+                android:radius="0.1dp"
+                android:topLeftRadius="7dp"
+                android:topRightRadius="7dp" />
+
+            <stroke
+                android:width="5dp"
+                android:color="#35f6ff70" />
+
         </shape>
     </item>
 </selector>

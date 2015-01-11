@@ -1,15 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradiant_background"
+    android:scaleType="fitXY"
+    android:background="@drawable/kindy"
     tools:context="com.oh5.baash.littlebitofeverything.Kindy"
     android:id="@+id/patterns_layout"
-    android:screenOrientation="landscape"
-    android:padding="17dp">
+    android:screenOrientation="landscape">
 
     <ImageButton
+        android:layout_alignParentTop="true"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:id="@+id/home_button"
         android:scaleType="fitXY"
         android:src="@drawable/house_icon"
@@ -22,13 +23,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Help Me Make Patterns"
         android:id="@+id/title_bar"
-        android:textSize="43sp"
+        android:textSize="33sp"
         android:textStyle="bold"
         android:layout_marginLeft="37dp"
         android:layout_toRightOf="@+id/home_button"
         android:layout_toEndOf="@+id/home_button"
         android:typeface="monospace"
-
         android:textColor="@color/light_font"
         />
 
@@ -36,22 +36,23 @@
     <LinearLayout
         android:id="@+id/game"
         android:layout_below="@+id/home_button"
-        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
         <LinearLayout
             android:id="@+id/choices"
 
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:gravity="top|center_horizontal"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:paddingTop="10px">
+            android:paddingTop="10px"
+            android:layout_below="@+id/title_bar"
+            android:layout_toRightOf="@+id/home_button"
+            android:layout_toEndOf="@+id/home_button">
 
 
             <Button
@@ -111,9 +112,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="0"
-        android:textColor="#FF000000"
+        android:textColor="#FFFFFFFF"
         android:id="@+id/score"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

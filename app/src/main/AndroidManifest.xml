@@ -19,7 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Patterns"
+            android:name=".Kindy"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_patterns"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name=".Kindy2"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_patterns"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >

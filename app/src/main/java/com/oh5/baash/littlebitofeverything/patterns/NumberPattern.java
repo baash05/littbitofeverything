@@ -3,7 +3,7 @@ package com.oh5.baash.littlebitofeverything.patterns;
 /**
  * Created by davidrawk on 3/01/15.
  */
-public class NumberPattern extends PatternsBase {
+public class NumberPattern extends BasePattern {
         private int m_size = 10;
 
         public NumberPattern(int size){
@@ -13,18 +13,11 @@ public class NumberPattern extends PatternsBase {
 
         public String [] get_answers(){
             if( m_answers == null) {
-
                 m_answers = new String[3];
-                int random_number;
+                int [] answer_ints = get_answer_ints();
                 for(int x = 0; x < 3; x++){
-                    random_number = m_randomiser.nextInt(7)+1;
-                    if( m_randomiser.nextBoolean() ) {
-                        random_number *= -1;
-                    }
-                    m_answers[x] = "" + ( (m_right_answer + random_number + 20)%20 );
+                    m_answers[x] = "" + answer_ints[x];
                 }
-                int right_index = m_randomiser.nextInt(3);
-                m_answers[right_index] = "" + m_right_answer;
             }
             return m_answers;
         }

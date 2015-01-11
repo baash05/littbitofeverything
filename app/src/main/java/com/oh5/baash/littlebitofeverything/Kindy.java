@@ -16,16 +16,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.oh5.baash.littlebitofeverything.patterns.AdditionPattern;
-import com.oh5.baash.littlebitofeverything.patterns.PatternsBase;
+import com.oh5.baash.littlebitofeverything.patterns.BasePattern;
 import com.oh5.baash.littlebitofeverything.patterns.LetterPattern;
 import com.oh5.baash.littlebitofeverything.patterns.NumberPattern;
+import com.oh5.baash.littlebitofeverything.patterns.SubtractionPattern;
 import com.oh5.baash.littlebitofeverything.util.ScreamingMonster;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Patterns extends BaseActivity {
+public class Kindy extends BaseActivity {
+
+    static public int m_score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +65,7 @@ public class Patterns extends BaseActivity {
 
     }
 
-    private static int m_right_answer_count = 0;
-    private void alter_choice_button(int button_id){
+    protected void alter_choice_button(int button_id){
         final Button button = (Button)findViewById(button_id);
         final ScreamingMonster monster = new ScreamingMonster(this, R.id.patterns_layout);
 
@@ -72,8 +74,8 @@ public class Patterns extends BaseActivity {
             public void onClick(View view) {
                 button.setEnabled(false);
                 if(view == m_right_button) {
-                    if( m_right_answer_count < 20) {
-                        if (m_right_answer_count % 3 == 0)
+                    if( m_score < 20) {
+                        if (m_score % 3 == 0)
                             monster.run();
                         else
                             play_bell_sound();
@@ -83,9 +85,13 @@ public class Patterns extends BaseActivity {
                         else
                             play_bell_sound();
                     }
-                    m_right_answer_count ++;
+                    m_score ++;
+
                     pick_pattern();
                 } else {
+                    if(m_score > 0) {
+                        m_score--;
+                    }
                     play_bad_sound();
                     int mControlsHeight  = view.getHeight();
                     int mShortAnimTime = getResources().getInteger(android.R.integer.config_mediumAnimTime);
@@ -93,7 +99,8 @@ public class Patterns extends BaseActivity {
                             .translationY(mControlsHeight)
                             .setDuration(mShortAnimTime);
                 }
-
+                TextView score_field = (TextView)findViewById(R.id.score);
+                score_field.setText("" + m_score);
             }
         });
         button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
@@ -104,10 +111,30 @@ public class Patterns extends BaseActivity {
         public static final int NUMBERS = 0;
         public static final int LETTERS = 1;
         public static final int ADDITION = 2;
-        public static final int PICTURES = 3;
+        public static final int SUBTRACTION = 3;
+        //public static final int PICTURES = 3;
         public static final int size = 4;
     }
-    private void animate_game_view(){
+    protected void pick_pattern(){
+        animate_game_view();
+        int pattern_type = new Random().nextInt(PatternType.size);
+        switch(pattern_type){
+            case PatternType.NUMBERS:
+                set_number_pattern();
+                break;
+            case PatternType.LETTERS:
+                set_letter_pattern();
+                break;
+            case PatternType.ADDITION:
+                set_addition_pattern();
+                break;
+            case PatternType.SUBTRACTION:
+                set_subtraction_pattern();
+                break;
+        }
+    }
+
+    protected void animate_game_view(){
         final View game_view = findViewById(R.id.game);
         game_view.setEnabled(false);
         int view_height  = game_view.getHeight();
@@ -131,25 +158,8 @@ public class Patterns extends BaseActivity {
         game_view.startAnimation(animation);
     }
 
-    private void pick_pattern(){
-        animate_game_view();
-        int pattern_type = new Random().nextInt(PatternType.size);
-        switch(pattern_type){
-            case PatternType.NUMBERS:
-                set_number_pattern();
-                break;
-            case PatternType.LETTERS:
-                set_letter_pattern();
-                break;
-            case PatternType.ADDITION:
-                set_addition_pattern();
-                break;
-            case PatternType.PICTURES:
-                set_number_pattern();//set_picture_pattern();
-                break;
-        }
-    }
-    private void reset_answer_button(int button_id){
+
+    protected void reset_answer_button(int button_id){
         View view = findViewById(button_id);
         int mControlsHeight  = view.getHeight();
         int mShortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
@@ -173,7 +183,7 @@ public class Patterns extends BaseActivity {
     Button m_right_button = null;
 
 
-    private void add_puzzle_element(String text){
+    protected void add_puzzle_element(String text){
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.patterns_box);
         final LayoutInflater mLayoutInflater = (LayoutInflater) linearLayout.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View box = mLayoutInflater.inflate(R.layout.puzzle_bit_text_box, null);
@@ -189,7 +199,7 @@ public class Patterns extends BaseActivity {
         m_pattern_buttons.add(box);
     }
 
-    private void set_number_pattern(){
+    protected void set_number_pattern(){
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("What number is missing?");
         clear_pattern_buttons();
@@ -197,7 +207,7 @@ public class Patterns extends BaseActivity {
         fill_in_puzzle(pattern);
     }
 
-    private void set_letter_pattern(){
+    protected void set_letter_pattern(){
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("What letter is missing?");
         clear_pattern_buttons();
@@ -205,17 +215,25 @@ public class Patterns extends BaseActivity {
         fill_in_puzzle(pattern);
     }
 
-    private int addition_pattern_run_count = 0;
-    private void set_addition_pattern(){
+    protected int addition_pattern_run_count = 0;
+    protected void set_addition_pattern(){
         addition_pattern_run_count ++;
         TextView title = (TextView)findViewById(R.id.title_bar);
         title.setText("Add the numbers");
         clear_pattern_buttons();
-        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 5: addition_pattern_run_count/2);
+        AdditionPattern pattern = new AdditionPattern(addition_pattern_run_count < 20 ? 5: addition_pattern_run_count/4);
+        fill_in_puzzle(pattern);
+    }
+    private void set_subtraction_pattern(){
+        addition_pattern_run_count ++;
+        TextView title = (TextView)findViewById(R.id.title_bar);
+        title.setText("Subtract the numbers");
+        clear_pattern_buttons();
+        SubtractionPattern pattern = new SubtractionPattern(addition_pattern_run_count < 20 ? 5: addition_pattern_run_count/4);
         fill_in_puzzle(pattern);
     }
 
-    private void fill_in_puzzle(PatternsBase pattern){
+    protected void fill_in_puzzle(BasePattern pattern){
         String [] puzzle = pattern.get_puzzle();
         String right_answer = pattern.get_right_answer();
         for(int x = 0; x < pattern.get_size(); x ++) {
@@ -242,5 +260,5 @@ public class Patterns extends BaseActivity {
             m_right_button = button3;
     }
 
-    private void set_picture_pattern(){}
+    protected void set_picture_pattern(){}
 }
