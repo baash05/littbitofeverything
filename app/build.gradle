@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.oh5.baash.littlebitofeverything"
+        applicationId "com.oh5.baash.tinymonsters"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1

@@ -11,9 +11,9 @@
         android:textSize="34sp"
         android:textStyle="bold"
         android:id="@+id/text_field"
-        android:text="12"
-        android:textColor="#fff60000"
-        android:background="#00FFFFFF"
+        android:text="  ?  "
+        android:textColor="#ecff3a1c"
+        android:background="#3055c381"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
