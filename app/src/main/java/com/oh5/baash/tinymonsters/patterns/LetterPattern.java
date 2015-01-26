@@ -11,6 +11,7 @@ public class LetterPattern extends BasePattern {
         static int A = 65;
 
         public LetterPattern(int size){
+            description = "What letter is missing?";
             m_right_answer = m_randomiser.nextInt(26);
             m_size = size;
             A = (new Random().nextBoolean() ?  65 : 97);

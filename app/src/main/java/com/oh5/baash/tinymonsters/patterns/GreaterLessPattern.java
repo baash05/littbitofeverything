@@ -7,6 +7,7 @@ public class GreaterLessPattern extends BasePattern {
     private int m_variable1, m_variable2;
     private String m_right_answer;
     public GreaterLessPattern(int max_variable){
+        description = "Compare the numbers";
         m_variable1 = m_randomiser.nextInt(max_variable) + 1;
         m_variable2 = m_variable1;
         switch(m_randomiser.nextInt(3)){

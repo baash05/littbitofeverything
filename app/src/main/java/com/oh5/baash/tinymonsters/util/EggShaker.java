@@ -3,13 +3,7 @@ package com.oh5.baash.tinymonsters.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.Display;
 import android.view.View;
-import android.view.ViewParent;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -17,7 +11,7 @@ import android.widget.ImageView;
 import com.oh5.baash.tinymonsters.R;
 
 /**
- * Created by davidrawk on 21/01/15.
+ * Created by david rawk on 21/01/15.
  */
 public class EggShaker {
 
@@ -46,6 +40,7 @@ public class EggShaker {
         view.setVisibility(View.VISIBLE);
         store_view_index( parent );
     }
+
     public int shake_and_promote(Activity parent){
         final ImageView view = (ImageView) parent.findViewById(R.id.egg);
 
@@ -71,41 +66,17 @@ public class EggShaker {
             view.startAnimation(animator);
         } else {
             monster_run(parent);
+            m_imageIndex = 0;
         }
         store_view_index(parent);
         return m_imageIndex;
-    }
-
-    static Point m_image_dimensions = null;
-    public Point get_image_dimensions(Activity parent){
-        if(m_image_dimensions == null){
-            Drawable d = parent.getResources().getDrawable(R.drawable.screaming_monster);
-            int image_h = d.getIntrinsicHeight();
-            int image_w = d.getIntrinsicWidth();
-            m_image_dimensions = new Point(image_w, image_h);
-        }
-        return m_image_dimensions;
     }
 
     public void monster_run(Activity parent){
         final ImageView view = (ImageView) parent.findViewById(R.id.egg);
         set_image(view);
         final Activity final_parent = parent;
-        int image_top = view.getTop();
-        int start_x = view.getLeft();
-        int width = 0;
-        Point size = new Point();
-        WindowManager w = parent.getWindowManager();
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)    {
-            w.getDefaultDisplay().getSize(size);
-            width = size.x;
-        }else{
-            Display d = w.getDefaultDisplay();
-            width = d.getWidth();
-        }
-
-        ViewParent layout = view.getParent();
         Animation animator = AnimationUtils.loadAnimation(parent, R.anim.slid_image);
         animator.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -118,14 +89,11 @@ public class EggShaker {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
                 reset_image(final_parent);
             }
         });
         view.startAnimation(animator);
         m_imageIndex = 0;
-
-
     }
 
     public void set_image(ImageView view){
@@ -135,11 +103,10 @@ public class EggShaker {
             case 2:  view.setBackgroundResource( R.drawable.egg_crack_2) ; break;
             case 3:  view.setBackgroundResource( R.drawable.egg_crack_3) ; break;
             case 4:  view.setBackgroundResource( R.drawable.egg_crack_4) ; break;
-            case 5:  view.setBackgroundResource( R.drawable.egg_crack_5_eyes) ; break;
+            case 5:  view.setBackgroundResource( R.drawable.egg_crack_5) ; break;
             case 6:  view.setBackgroundResource( R.drawable.egg_crack_6) ; break;
             case 7:  view.setBackgroundResource( R.drawable.egg_crack_7) ; break;
             case 8:  view.setBackgroundResource( R.drawable.screaming_monster) ; break;
         }
     }
-
 }

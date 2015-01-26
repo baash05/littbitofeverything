@@ -7,6 +7,7 @@ public class NumberPattern extends BasePattern {
         private int m_size = 10;
 
         public NumberPattern(int size){
+            description = "What number is missing?";
             m_right_answer = m_randomiser.nextInt(20);
             m_size = size;
         }

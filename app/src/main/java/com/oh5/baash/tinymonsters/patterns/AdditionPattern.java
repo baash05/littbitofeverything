@@ -6,6 +6,7 @@ package com.oh5.baash.tinymonsters.patterns;
 public class AdditionPattern extends BasePattern {
     private int m_variable1, m_variable2;
     public AdditionPattern(int max_variable){
+        description = "Add the numbers";
         m_variable1 = m_randomiser.nextInt(max_variable) + 1;
         m_variable2 = m_randomiser.nextInt(max_variable) + 1;
         m_right_answer = m_variable1 + m_variable2;

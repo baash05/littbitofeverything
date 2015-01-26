@@ -10,6 +10,7 @@ public abstract class BasePattern {
     protected String [] m_answers = null;
     protected String [] m_pattern = null;
     protected Random m_randomiser = new Random();
+    public    String description = "";
 
     public String get_right_answer(){
         return "" + m_right_answer;

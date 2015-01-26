@@ -8,22 +8,15 @@
     android:id="@+id/root"
     android:screenOrientation="landscape">
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:background="#ffffffff"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:id="@+id/progressBar" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/home_button"
         android:scaleType="fitXY"
         android:src="@drawable/house_icon"
         android:background="#00000000"
         android:clickable="true"
-        android:layout_below="@+id/progressBar"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"/>
 
@@ -42,7 +35,6 @@
         android:layout_toRightOf="@+id/home_button"
         android:layout_alignBottom="@+id/home_button" />
 
-
     <LinearLayout
         android:id="@+id/patterns_box"
         android:paddingLeft="20dp"
@@ -57,20 +49,9 @@
         android:background="@drawable/square_box"
         android:layout_below="@+id/title_bar"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp">
-
-        <LinearLayout
-            android:layout_width="1dp"
-            android:layout_height="10dp"
-            >
-
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+        android:layout_marginBottom="5dp"
+        android:minWidth="250dp"
+        android:minHeight="50dp" />
 
     <LinearLayout
         android:id="@+id/game"
@@ -95,11 +76,13 @@
             <Button
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:textSize="43sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
-                android:textColor="#ffff313b"
+                android:textColor="#ff061a4c"
                 android:text="A"
                 android:id="@+id/choice1"
                 android:background="@drawable/rounded_button" />
@@ -107,40 +90,40 @@
             <Button
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:layout_width="100dp"
                 android:layout_height="fill_parent"
-                android:textSize="43sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 android:text="B"
-                android:textColor="#ffff313b"
+                android:textColor="#ff061a4c"
                 android:id="@+id/choice2"
                 android:background="@drawable/rounded_button" />
 
             <Button
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:textSize="43sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 android:layout_width="100dp"
                 android:layout_height="fill_parent"
                 android:text="C"
-                android:textColor="#ffff313b"
+                android:textColor="#ff061a4c"
                 android:id="@+id/choice3"
                 android:background="@drawable/rounded_button"/>
         </LinearLayout>
-
-
     </LinearLayout>
-
 
     <ImageButton
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/egg_crack_0"
         android:id="@+id/egg"
-
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
-
+        android:layout_alignParentLeft="true"
+        android:clickable="true" />
 
 </RelativeLayout>

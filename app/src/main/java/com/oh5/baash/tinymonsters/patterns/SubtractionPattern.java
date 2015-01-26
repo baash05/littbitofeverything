@@ -6,6 +6,7 @@ package com.oh5.baash.tinymonsters.patterns;
 public class SubtractionPattern extends BasePattern {
     private int m_variable1, m_variable2;
     public SubtractionPattern(int max_variable){
+        description = "Subtract the numbers";
         do {
             m_variable1 = m_randomiser.nextInt(max_variable) + 1;
             m_variable2 = m_randomiser.nextInt(max_variable) + 1;
